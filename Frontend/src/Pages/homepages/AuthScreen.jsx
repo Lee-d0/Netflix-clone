@@ -1,10 +1,16 @@
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { ChevronRight } from "lucide-react"
 
 
 const AuthScreen = () => {
     const [email, setEmail] = useState("")
+    const navigate = useNavigate();
+
+    const handleFromSubmit = (e) => {
+        e.preventDefault();
+        navigate("/signup?email=" + email)
+    }
   return (
     <div className="hero-bg relative">
         {/* NavBar */}
@@ -23,10 +29,10 @@ const AuthScreen = () => {
                 <p className="text-lg mb-4">Watch anywhere, Cancel anytime</p>
                 <p className="mb-4">Ready to watch? Enter your email to create or restart your membership</p>
 
-                <form className="flex flex-col md:flex-row gap-4 w-1/2">
+                <form className="flex flex-col md:flex-row gap-4 w-1/2 " onSubmit={handleFromSubmit}>
                 
                        
-                        <input type="text" 
+                        <input type="email" 
                         className="w-full px-3 py-2 mt-1 border border-gray-700 rounded-md bg-transparent text-white
                         focus:ontline-none focus-ring" placeholder="Email Address" id="email" 
                         value={email}
@@ -115,7 +121,7 @@ const AuthScreen = () => {
                     <div className="flex max-w-6xl mx-auto items-center justify-center md:flex-row flex-col px-4 md:px-2">
                         {/* leftside */}
                         <div className="flex-1 text-center md:text-left">
-                            <h2 className="text-4xl text-center font-extrabold mb-4">Watch everywhere</h2>
+                            <h2 className="text-4xl font-extrabold mb-4">Watch everywhere</h2>
                             <p className="text-lg md:text-xl">
                                 Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.
                             </p>
@@ -136,7 +142,29 @@ const AuthScreen = () => {
                     </div>
                     
                 </div>
-                {/* footer */}
+                <div className="h-2 w-full bg-[#232323]" aria-hidden="true" />
+
+
+                {/* 4th Section */}
+                <div className="py-10 bg-black text-white">
+                    <div className="flex max-w-6xl mx-auto items-center justify-center flex-col-reverse md:flex-row
+                    px-4 md:px-2">
+                        <div className="flex-1 relative">
+                            <img src="/kids.png" alt="Enjoy your TV" className="mt-4" />   
+                        </div>
+
+                        <div className="flex-1 text-center md:text-left">
+                            <h2 className="text-4xl md:5xl font-extrabold mb-4">Create profiles fot kids</h2>
+                            <p className="text-lg md:text-xl">
+                                Send kids on adventures with your favorite characters in a space made just for them--free 
+                                with your membership
+                            </p>
+
+                        </div>
+
+                    </div>
+                    
+                </div>
 
     </div>
   )
