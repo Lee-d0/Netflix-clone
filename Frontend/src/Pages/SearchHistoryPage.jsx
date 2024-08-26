@@ -2,7 +2,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import Navbar from "../componets/Navbar"
 import { SMALL_IMG_BASE_URL } from "../utils/constants"
-import { AwardIcon, Trash } from "lucide-react"
+import { Trash } from "lucide-react"
 import toast from "react-hot-toast"
 
 function formatDate(dateString){

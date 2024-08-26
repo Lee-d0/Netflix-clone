@@ -36,7 +36,7 @@ const SearchPage = () => {
         }
     }
 
-    console.log("results:", results)
+    
 
   return (
     <div className="bg-black min-h-screen text-white ">
@@ -88,7 +88,9 @@ const SearchPage = () => {
                                 </div>
 
                             ):
-                            <Link to={"/watch/" + results.id} className="flex flex-col items-center">
+                            <Link to={"/watch/" + results.id} onClick={() => {
+                                setContentType(activeTab)
+                            }} className="flex flex-col items-center">
                             <img src={ORIGINAL_IMG_BASE_URL + results.poster_path} 
                             alt={results.title || results.name}
                             className="max-h-96 rounded mx-auto" />
